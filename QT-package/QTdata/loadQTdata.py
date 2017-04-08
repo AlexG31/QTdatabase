@@ -105,7 +105,7 @@ class QTloader:
     def getreclist(self):
         return self.reclist
     def getexpertlabeltuple(self,recname,sigIN = None,negposlist = None,
-            excludedist = 6):
+            excludedist = 6, include_Tonset = False):
         
         # get QT sig
         if sigIN is not None:
@@ -179,7 +179,8 @@ class QTloader:
                 
             # ignore Tonset
             if curlabel == 'Tonset':
-                continue
+                if include_Tonset == False:
+                    continue
             #===========================
             # add to list
             # for map build in function
